@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sport-dark: #0B1310;
+  --color-sport-green: #0D2818;
+  --color-sport-accent: #39FF14;
+  --color-sport-gold: #FFD700;
+  --color-sport-card: #14201A;
+  --color-sport-card-hover: #1E2E25;
+  --color-sport-text: #F8FAFC;
+  --color-sport-muted: #94A3B8;
+  --color-sport-danger: #EF4444;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-sport-dark);
+  color: var(--color-sport-text);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .glass-card {
+    background-color: var(--color-sport-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .text-shadow-glow {
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+  }
+}
