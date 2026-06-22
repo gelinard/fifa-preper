@@ -1,21 +1,72 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Match } from "@/lib/mockData";
 import MatchCard from "./MatchCard";
-import { Search, Calendar, History, Play, ShieldAlert } from "lucide-react";
+import { Search, Calendar, History, Play, ShieldAlert, Loader2 } from "lucide-react";
 
 interface DashboardClientProps {
   initialMatches: Match[];
 }
 
 export default function DashboardClient({ initialMatches }: DashboardClientProps) {
+  const [matches, setMatches] = useState<Match[]>(initialMatches);
+  const [isLoading, setIsLoading] = useState(initialMatches.length === 0);
+  const [error, setError] = useState<string | null>(null);
+
   const [activeTab, setActiveTab] = useState<'live' | 'upcoming' | 'completed'>('upcoming');
   const [stageFilter, setStageFilter] = useState<'all' | 'group' | 'knockout'>('all');
   const [searchQuery, setSearchQuery] = useState("");
 
+  useEffect(() => {
+    async function loadMatches() {
+      if (matches.length === 0) {
+        setIsLoading(true);
+      }
+      
+      try {
+        // 1. Try local API proxy first
+        const res = await fetch("/api/matches");
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data)) {
+            setMatches(data);
+            setError(null);
+            setIsLoading(false);
+            return;
+          }
+        }
+      } catch (err) {
+        console.warn("Local API proxy failed, falling back to direct API fetch...", err);
+      }
+
+      // 2. Direct external API fallback
+      try {
+        const { fetchWorldCupMatches } = await import("@/lib/apiClient");
+        const data = await fetchWorldCupMatches();
+        if (Array.isArray(data) && data.length > 0) {
+          setMatches(data);
+          setError(null);
+        } else if (matches.length === 0) {
+          setError("No match data returned from the API.");
+        }
+      } catch (err) {
+        console.error("Direct API fetch failed:", err);
+        if (matches.length === 0) {
+          setError("Failed to load matches. Please check your internet connection.");
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadMatches();
+    const interval = setInterval(loadMatches, 60000); // Poll every 60s
+    return () => clearInterval(interval);
+  }, [matches.length]);
+
   const filteredMatches = useMemo(() => {
-    return initialMatches.filter((match) => {
+    return matches.filter((match) => {
       // 1. Status Filter
       if (match.status !== activeTab) return false;
 
@@ -47,7 +98,7 @@ export default function DashboardClient({ initialMatches }: DashboardClientProps
 
       return true;
     });
-  }, [initialMatches, activeTab, stageFilter, searchQuery]);
+  }, [matches, activeTab, stageFilter, searchQuery]);
 
   // Sort matches accordingly
   const sortedMatches = useMemo(() => {
@@ -67,11 +118,11 @@ export default function DashboardClient({ initialMatches }: DashboardClientProps
   // Count matches in each tab for badges
   const tabCounts = useMemo(() => {
     return {
-      live: initialMatches.filter(m => m.status === 'live').length,
-      upcoming: initialMatches.filter(m => m.status === 'upcoming').length,
-      completed: initialMatches.filter(m => m.status === 'completed').length,
+      live: matches.filter(m => m.status === 'live').length,
+      upcoming: matches.filter(m => m.status === 'upcoming').length,
+      completed: matches.filter(m => m.status === 'completed').length,
     };
-  }, [initialMatches]);
+  }, [matches]);
 
   return (
     <div className="space-y-8">
@@ -177,14 +228,41 @@ export default function DashboardClient({ initialMatches }: DashboardClientProps
         </button>
       </div>
 
+      {/* Loading State */}
+      {isLoading && matches.length === 0 && (
+        <div className="flex flex-col items-center justify-center py-20 text-center glass-card rounded-2xl border border-white/5">
+          <Loader2 className="w-10 h-10 text-sport-accent animate-spin mb-4" />
+          <h3 className="text-lg font-bold">Loading Live Fixtures...</h3>
+          <p className="text-sport-muted text-sm">Fetching real-time World Cup data...</p>
+        </div>
+      )}
+
+      {/* Error State */}
+      {error && matches.length === 0 && (
+        <div className="flex flex-col items-center justify-center py-20 text-center glass-card rounded-2xl border border-sport-danger/20 bg-sport-danger/5">
+          <ShieldAlert className="w-12 h-12 text-sport-danger mb-4" />
+          <h3 className="text-xl font-bold text-sport-danger mb-1">Failed to Connect</h3>
+          <p className="text-sport-muted text-sm max-w-sm mb-6">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-5 py-2.5 bg-sport-danger text-white font-bold rounded-xl hover:bg-sport-danger/80 transition-colors shadow-lg shadow-sport-danger/20"
+          >
+            Retry Connection
+          </button>
+        </div>
+      )}
+
       {/* Match Cards Grid */}
-      {sortedMatches.length > 0 ? (
+      {!isLoading && !error && sortedMatches.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sortedMatches.map((match) => (
             <MatchCard key={match.id} match={match} />
           ))}
         </div>
-      ) : (
+      )}
+
+      {/* No Matches Found */}
+      {!isLoading && !error && sortedMatches.length === 0 && (
         <div className="flex flex-col items-center justify-center py-20 text-center glass-card rounded-2xl border border-white/5">
           <ShieldAlert className="w-12 h-12 text-sport-muted/40 mb-4" />
           <h3 className="text-xl font-bold mb-1">No Matches Found</h3>
