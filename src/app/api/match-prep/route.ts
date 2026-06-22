@@ -26,14 +26,14 @@ const matchSchema = z.object({
   })).max(2).min(1),
   homeTrivia: z.array(z.object({
     id: z.string(),
-    question: z.string(),
-    answer: z.string()
-  })).length(3).describe("Provide fascinating 'good to know' facts. Focus on team highlights, rich history, and their typical playing style or philosophy."),
+    title: z.string().describe("The spotlight category name (e.g., 'History & Milestones', 'Tactical Style', 'Latest News')."),
+    content: z.string().describe("Detailed, informational paragraph focusing on this spotlight category.")
+  })).length(3).describe("Provide fascinating spotlight highlights. The first item MUST focus on the team's history and key milestones. The second item MUST focus on the team's tactical style and philosophy. The third item MUST focus on recent news or team spotlights."),
   awayTrivia: z.array(z.object({
     id: z.string(),
-    question: z.string(),
-    answer: z.string()
-  })).length(3).describe("Provide fascinating 'good to know' facts. Focus on team highlights, rich history, and their typical playing style or philosophy."),
+    title: z.string().describe("The spotlight category name (e.g., 'History & Milestones', 'Tactical Style', 'Latest News')."),
+    content: z.string().describe("Detailed, informational paragraph focusing on this spotlight category.")
+  })).length(3).describe("Provide fascinating spotlight highlights. The first item MUST focus on the team's history and key milestones. The second item MUST focus on the team's tactical style and philosophy. The third item MUST focus on recent news or team spotlights."),
   winProbability: z.object({
     home: z.number().min(0).max(100),
     draw: z.number().min(0).max(100),
