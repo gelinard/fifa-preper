@@ -426,6 +426,436 @@ export const KNOWN_TEAM_PROFILES: Record<string, Omit<Team, 'id' | 'name'>> = {
         content: "Didier Drogba remains the country's all-time leading goalscorer with 65 goals, famously leading them to their first World Cup in 2006."
       }
     ]
+  },
+  "Argentina": {
+    flagCode: "AR",
+    fifaRanking: 1,
+    tournamentStanding: "1st in Group J",
+    form: ['W', 'W', 'W', 'D', 'W'],
+    playersToWatch: [
+      {
+        id: "p_arg_1",
+        name: "Lionel Messi",
+        position: "Forward",
+        club: "Inter Miami",
+        league: "MLS",
+        description: "The legendary captain, still a magician with the ball, known for his playmaking and clinical free kicks.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      },
+      {
+        id: "p_arg_2",
+        name: "Lautaro Martínez",
+        position: "Forward",
+        club: "Inter Milan",
+        league: "Serie A",
+        description: "A clinical finisher and hard-working striker who leads the line with strength.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      }
+    ],
+    trivia: [
+      {
+        id: "tr_arg_1",
+        title: "World Cup Finals History",
+        content: "Argentina has won three World Cup titles, most recently in 2022 led by Lionel Messi in Qatar."
+      },
+      {
+        id: "tr_arg_2",
+        title: "Possession Style",
+        content: "Plays a fluid possession game, focusing on passing lanes to Messi and rapid counter-pressing in midfield."
+      },
+      {
+        id: "tr_arg_3",
+        title: "Reigning Champions",
+        content: "Argentina enters the match as reigning world champions, looking to maintain their dominant form."
+      }
+    ]
+  },
+  "France": {
+    flagCode: "FR",
+    fifaRanking: 2,
+    tournamentStanding: "1st in Group I",
+    form: ['W', 'D', 'W', 'W', 'D'],
+    playersToWatch: [
+      {
+        id: "p_fra_1",
+        name: "Kylian Mbappé",
+        position: "Forward",
+        club: "Real Madrid",
+        league: "La Liga",
+        description: "One of the fastest and most clinical forwards in the world, capable of winning games single-handedly.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      },
+      {
+        id: "p_fra_2",
+        name: "Antoine Griezmann",
+        position: "Midfielder",
+        club: "Atlético Madrid",
+        league: "La Liga",
+        description: "The engine room of France's attack, linking midfield and defense with superb workrate.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      }
+    ],
+    trivia: [
+      {
+        id: "tr_fra_1",
+        title: "Two-Time Champions",
+        content: "France are two-time World Cup winners (1998, 2018) and reached the final in 2006 and 2022."
+      },
+      {
+        id: "tr_fra_2",
+        title: "Deschamps' Tactics",
+        content: "Under Didier Deschamps, Les Bleus play a highly disciplined defensive shape, executing explosive counters through Mbappé."
+      },
+      {
+        id: "tr_fra_3",
+        title: "Mbappé's Era",
+        content: "Kylian Mbappé leads the golden generation, aiming to secure another historic trophy."
+      }
+    ]
+  },
+  "Brazil": {
+    flagCode: "BR",
+    fifaRanking: 4,
+    tournamentStanding: "1st in Group C",
+    form: ['W', 'D', 'W', 'L', 'W'],
+    playersToWatch: [
+      {
+        id: "p_bra_1",
+        name: "Vinícius Júnior",
+        position: "Forward",
+        club: "Real Madrid",
+        league: "La Liga",
+        description: "An explosive winger with world-class dribbling, speed, and goalscoring ability.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      },
+      {
+        id: "p_bra_2",
+        name: "Rodrygo",
+        position: "Forward",
+        club: "Real Madrid",
+        league: "La Liga",
+        description: "A versatile attacker with great intelligence, technique, and clinical finishes.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      }
+    ],
+    trivia: [
+      {
+        id: "tr_bra_1",
+        title: "Pentacampeões",
+        content: "Brazil is the most successful nation in World Cup history, having won a record five titles."
+      },
+      {
+        id: "tr_bra_2",
+        title: "Joga Bonito",
+        content: "Plays classic 'Joga Bonito' with rapid wing play, high individual flair, and structured defensive midfield support."
+      },
+      {
+        id: "tr_bra_3",
+        title: "High Pressure",
+        content: "The Seleção are under high pressure to reclaim their spot at the pinnacle of international football."
+      }
+    ]
+  },
+  "England": {
+    flagCode: "EN",
+    fifaRanking: 5,
+    tournamentStanding: "1st in Group L",
+    form: ['W', 'D', 'W', 'W', 'D'],
+    playersToWatch: [
+      {
+        id: "p_eng_1",
+        name: "Harry Kane",
+        position: "Forward",
+        club: "Bayern Munich",
+        league: "Bundesliga",
+        description: "An elite target man and clinical finisher who also drops deep to playmake.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      },
+      {
+        id: "p_eng_2",
+        name: "Jude Bellingham",
+        position: "Midfielder",
+        club: "Real Madrid",
+        league: "La Liga",
+        description: "A dynamic box-to-box midfielder with exceptional physicality, goals, and leadership.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      }
+    ],
+    trivia: [
+      {
+        id: "tr_eng_1",
+        title: "1966 Champions",
+        content: "England won their sole World Cup title in 1966 on home soil and recently reached the semi-finals in 2018."
+      },
+      {
+        id: "tr_eng_2",
+        title: "Controlled Possession",
+        content: "Focuses on controlled possession, utilizing creative wingers and solid double-pivot midfield stability."
+      },
+      {
+        id: "tr_eng_3",
+        title: "Star-Studded Squad",
+        content: "The Three Lions are highly favored with one of the most valuable squads in the tournament."
+      }
+    ]
+  },
+  "Spain": {
+    flagCode: "ES",
+    fifaRanking: 8,
+    tournamentStanding: "1st in Group H",
+    form: ['W', 'D', 'W', 'W', 'W'],
+    playersToWatch: [
+      {
+        id: "p_esp_1",
+        name: "Lamine Yamal",
+        position: "Forward",
+        club: "FC Barcelona",
+        league: "La Liga",
+        description: "A teenage sensation with exceptional dribbling, creativity, and maturity beyond his years.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      },
+      {
+        id: "p_esp_2",
+        name: "Rodri",
+        position: "Midfielder",
+        club: "Manchester City",
+        league: "Premier League",
+        description: "The tactical anchor of the team, controlling the tempo and orchestrating play.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      }
+    ],
+    trivia: [
+      {
+        id: "tr_esp_1",
+        title: "Tiki-Taka Era",
+        content: "Spain won their first World Cup in 2010 in South Africa, dominating international football from 2008 to 2012."
+      },
+      {
+        id: "tr_esp_2",
+        title: "Modern Passing",
+        content: "Plays a modern variation of 'Tiki-Taka' with high pressing, quick passing, and dynamic wingers."
+      },
+      {
+        id: "tr_esp_3",
+        title: "Nations League Winners",
+        content: "La Roja enters the tournament with high expectations after winning the UEFA Nations League."
+      }
+    ]
+  },
+  "Portugal": {
+    flagCode: "PT",
+    fifaRanking: 7,
+    tournamentStanding: "1st in Group K",
+    form: ['W', 'W', 'L', 'W', 'W'],
+    playersToWatch: [
+      {
+        id: "p_por_1",
+        name: "Bruno Fernandes",
+        position: "Midfielder",
+        club: "Manchester United",
+        league: "Premier League",
+        description: "A creative playmaker with exceptional passing range, workrate, and long-range shooting.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      },
+      {
+        id: "p_por_2",
+        name: "Rafael Leão",
+        position: "Forward",
+        club: "AC Milan",
+        league: "Serie A",
+        description: "A powerful and fast winger known for his dribbling and dynamic attacks.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      }
+    ],
+    trivia: [
+      {
+        id: "tr_por_1",
+        title: "1966 Legacy",
+        content: "Portugal's best World Cup finish was 3rd place in 1966 led by Eusébio."
+      },
+      {
+        id: "tr_por_2",
+        title: "Wing Play",
+        content: "Plays a fluid, attacking style that relies on technical midfielders to feed fast, creative wingers."
+      },
+      {
+        id: "tr_por_3",
+        title: "Squad Depth",
+        content: "Portugal boasts a deep squad combining elite young talent and veteran experience."
+      }
+    ]
+  },
+  "Norway": {
+    flagCode: "NO",
+    fifaRanking: 44,
+    tournamentStanding: "3rd in Group I",
+    form: ['W', 'D', 'L', 'W', 'W'],
+    playersToWatch: [
+      {
+        id: "p_nor_1",
+        name: "Erling Haaland",
+        position: "Forward",
+        club: "Manchester City",
+        league: "Premier League",
+        description: "An absolute goal machine with incredible speed, strength, and clinical finishing.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      },
+      {
+        id: "p_nor_2",
+        name: "Martin Ødegaard",
+        position: "Midfielder",
+        club: "Arsenal FC",
+        league: "Premier League",
+        description: "The creative mastermind, orchestrating the attack with world-class vision.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      }
+    ],
+    trivia: [
+      {
+        id: "tr_nor_1",
+        title: "World Cup Returns",
+        content: "Norway has qualified for the World Cup three times, notably reaching the Round of 16 in 1998."
+      },
+      {
+        id: "tr_nor_2",
+        title: "Haaland's Targets",
+        content: "Focuses on defensive stability, quickly counter-attacking to release Haaland in space."
+      },
+      {
+        id: "tr_nor_3",
+        title: "Golden Duo",
+        content: "Haaland and Ødegaard look to guide Norway deep into their first tournament in over two decades."
+      }
+    ]
+  },
+  "Iraq": {
+    flagCode: "IQ",
+    fifaRanking: 55,
+    tournamentStanding: "4th in Group I",
+    form: ['L', 'W', 'D', 'W', 'L'],
+    playersToWatch: [
+      {
+        id: "p_irq_1",
+        name: "Aymen Hussein",
+        position: "Forward",
+        club: "Al-Khor",
+        league: "Qatar Stars League",
+        description: "A tall, physical striker who is highly effective in aerial duels and finishing.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      },
+      {
+        id: "p_irq_2",
+        name: "Ali Jasim",
+        position: "Midfielder",
+        club: "Como",
+        league: "Serie A",
+        description: "A highly creative winger known for his agility, dribbling, and speed.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      }
+    ],
+    trivia: [
+      {
+        id: "tr_irq_1",
+        title: "1986 Debut",
+        content: "Iraq qualified for their first and only World Cup in 1986 in Mexico."
+      },
+      {
+        id: "tr_irq_2",
+        title: "Defensive Block",
+        content: "Plays a highly structured defensive system, utilizing quick transitions and long balls to Hussein."
+      },
+      {
+        id: "tr_irq_3",
+        title: "Lions of Mesopotamia",
+        content: "The Lions of Mesopotamia have strong support from passionate fans traveling in large numbers."
+      }
+    ]
+  },
+  "Austria": {
+    flagCode: "AT",
+    fifaRanking: 25,
+    tournamentStanding: "3rd in Group J",
+    form: ['W', 'D', 'W', 'L', 'W'],
+    playersToWatch: [
+      {
+        id: "p_aut_1",
+        name: "Marcel Sabitzer",
+        position: "Midfielder",
+        club: "Borussia Dortmund",
+        league: "Bundesliga",
+        description: "A versatile midfielder with exceptional workrate, leadership, and shooting.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      },
+      {
+        id: "p_aut_2",
+        name: "Konrad Laimer",
+        position: "Midfielder",
+        club: "Bayern Munich",
+        league: "Bundesliga",
+        description: "A tireless runner who excels in high-pressing and winning back possession.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      }
+    ],
+    trivia: [
+      {
+        id: "tr_aut_1",
+        title: "1954 Podiums",
+        content: "Austria's best World Cup finish was 3rd place in 1954 in Switzerland."
+      },
+      {
+        id: "tr_aut_2",
+        title: "Gegenpressing",
+        content: "Plays a signature high-pressing 'Red Bull' style, suffocating opponents in midfield."
+      },
+      {
+        id: "tr_aut_3",
+        title: "Dark Horses",
+        content: "Austria enters the tournament as a dark horse capable of upsetting top-tier teams."
+      }
+    ]
+  },
+  "Senegal": {
+    flagCode: "SN",
+    fifaRanking: 17,
+    tournamentStanding: "2nd in Group I",
+    form: ['W', 'W', 'L', 'W', 'D'],
+    playersToWatch: [
+      {
+        id: "p_sen_1",
+        name: "Sadio Mané",
+        position: "Forward",
+        club: "Al-Nassr",
+        league: "Saudi Pro League",
+        description: "The legendary winger, known for his incredible pace, dribbling, and goalscoring instinct.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      },
+      {
+        id: "p_sen_2",
+        name: "Nicolas Jackson",
+        position: "Forward",
+        club: "Chelsea FC",
+        league: "Premier League",
+        description: "A dynamic and hard-working forward who excels in link-up play and running in behind.",
+        avatarUrl: "/avatars/placeholder.jpg"
+      }
+    ],
+    trivia: [
+      {
+        id: "tr_sen_1",
+        title: "2002 Quarter-Finalists",
+        content: "Senegal reached the quarter-finals in their debut World Cup in 2002, famously defeating reigning champions France."
+      },
+      {
+        id: "tr_sen_2",
+        title: "Physical Counter",
+        content: "Plays a high-tempo, physical counter-attacking style with quick transitions to release fast wingers."
+      },
+      {
+        id: "tr_sen_3",
+        title: "Teranga Lions",
+        content: "The Teranga Lions look to build on their AFCON successes and make a deep run in 2026."
+      }
+    ]
   }
 };
 

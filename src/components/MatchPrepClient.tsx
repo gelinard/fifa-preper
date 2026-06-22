@@ -56,7 +56,7 @@ const matchSchema = z.object({
 export default function MatchPrepClient({ matchData }: { matchData: Match }) {
   const isUndecided = matchData.homeTeam.flagCode === "TBD" || matchData.awayTeam.flagCode === "TBD";
 
-  const { object, submit, isLoading } = useObject({
+  const { object, submit, isLoading, error: aiError } = useObject({
     api: "/api/match-prep",
     schema: matchSchema,
   });
@@ -152,6 +152,20 @@ export default function MatchPrepClient({ matchData }: { matchData: Match }) {
           </div>
         )}
       </div>
+
+      {aiError && (
+        <div className="glass-card p-5 rounded-2xl border border-sport-danger/20 bg-sport-danger/5 mb-6 flex gap-4 items-start relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-1.5 h-full bg-sport-danger"></div>
+          <div className="text-2xl mt-0.5">⚠️</div>
+          <div className="space-y-1">
+            <h4 className="font-extrabold text-sm text-sport-text uppercase tracking-wider">AI Insights Suspended</h4>
+            <p className="text-xs text-sport-muted leading-relaxed">
+              The real-time AI generation was skipped or returned an error (usually due to a missing <code className="bg-sport-dark/60 text-sport-accent px-1.5 py-0.5 rounded font-mono text-[10px]">GOOGLE_GENERATIVE_AI_API_KEY</code> in Azure Application Settings).
+              Displaying local database profile details below.
+            </p>
+          </div>
+        </div>
+      )}
 
       <MatchupHeader match={fullMatch as any} />
 
